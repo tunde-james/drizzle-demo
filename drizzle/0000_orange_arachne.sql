@@ -1,3 +1,9 @@
+DO $$ BEGIN
+ CREATE TYPE "mood" AS ENUM('sad', 'ok', 'happy');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "testTable" (
 	"id" bigserial,
 	"qty" bigint,
@@ -6,9 +12,10 @@ CREATE TABLE IF NOT EXISTS "testTable" (
 	"delivered" boolean,
 	"description" varchar(256),
 	"name" char(10),
-	"data" jsonb,
+	"data" jsonb NOT NULL,
 	"startAt" time DEFAULT now(),
-	"date" timestamp DEFAULT now()
+	"date" date DEFAULT now(),
+	"mood" "mood" DEFAULT 'happy'
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "users" (

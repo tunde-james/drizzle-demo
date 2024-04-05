@@ -1,5 +1,5 @@
 {
-  "id": "e1714a56-091b-44bc-bfdc-a1537cfb1d7b",
+  "id": "0d3da75d-9fe4-47af-ae6f-9788fe02a72e",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -54,7 +54,7 @@
           "name": "data",
           "type": "jsonb",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "startAt": {
           "name": "startAt",
@@ -65,10 +65,17 @@
         },
         "date": {
           "name": "date",
-          "type": "timestamp",
+          "type": "date",
           "primaryKey": false,
           "notNull": false,
           "default": "now()"
+        },
+        "mood": {
+          "name": "mood",
+          "type": "mood",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'happy'"
         }
       },
       "indexes": {},
@@ -111,7 +118,16 @@
       "uniqueConstraints": {}
     }
   },
-  "enums": {},
+  "enums": {
+    "mood": {
+      "name": "mood",
+      "values": {
+        "sad": "sad",
+        "ok": "ok",
+        "happy": "happy"
+      }
+    }
+  },
   "schemas": {},
   "_meta": {
     "columns": {},
