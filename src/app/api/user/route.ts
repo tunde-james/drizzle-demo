@@ -31,6 +31,13 @@ export async function GET() {
   const result = await db.query.users.findFirst({
     with: {
       profiles: true,
+      posts: true,
+    },
+  });
+
+  const findFirstPost = await db.query.posts.findFirst({
+    with: {
+      author: true,
     },
   });
 
