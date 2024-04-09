@@ -1,5 +1,5 @@
 {
-  "id": "0d3da75d-9fe4-47af-ae6f-9788fe02a72e",
+  "id": "ab1ca43f-b275-468b-bfcf-b50c577c9e79",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "5",
   "dialect": "pg",
@@ -108,6 +108,12 @@
         "address": {
           "name": "address",
           "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "score": {
+          "name": "score",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         }
