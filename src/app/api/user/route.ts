@@ -38,6 +38,7 @@ export async function GET() {
   const findFirstPost = await db.query.posts.findFirst({
     with: {
       author: true,
+      postOnCategories: true,
     },
   });
 
